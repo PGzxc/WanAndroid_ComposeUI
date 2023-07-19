@@ -14,3 +14,13 @@
 * 网络json转换：converter-gson
 * MVVM模式：lifecycle-viewmodel-ktx、lifecycle-viewmodel-compose
 
+### 2.2 V2.0—底部导航项目框架搭建
+
+* Scaffold的bottomBar设置底部导航条
+* NavHost导航切换时，显示对应界面
+
+
+
+## 三 项目中用到的资源
+
+* Icons：https://fonts.google.com/icons

@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.WanAndroid_ComposeUI" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.WanAndroid_ComposeUI" parent="android:Theme.Material.Light.NoActionBar">
+
+        <!-- Status bar color. -->
+        <item name="android:colorPrimary">@color/primary</item>
+        <item name="android:colorAccent">@color/primary</item>
+        <item name="android:colorBackgroundCacheHint">@color/primary</item>
+        <item name="android:colorForeground">@color/primary</item>
+        <item name="android:colorEdgeEffect">@color/primary</item>
+
+        <!-- Secondary brand color. -->
+
+
+    </style>
 </resources>
