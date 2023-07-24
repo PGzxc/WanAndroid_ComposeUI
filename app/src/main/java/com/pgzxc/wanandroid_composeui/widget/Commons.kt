@@ -15,6 +15,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.pgzxc.wanandroid_composeui.theme.themeColor
 import com.pgzxc.wanandroid_composeui.ui.entry.BottomNavRoute
+import com.pgzxc.wanandroid_composeui.ui.entry.RouteName
 
 
 @Composable
@@ -28,24 +29,19 @@ fun BottomNavBarView(navCtrl: NavHostController) {
     )
     BottomNavigation {
         val navBackStackEntry by navCtrl.currentBackStackEntryAsState()
-        val currentDestination = navBackStackEntry?.destination
+        val currentDestination = navBackStackEntry?.destination?.route?:RouteName.HOME
         bottomNavList.forEach { screen ->
             BottomNavigationItem(
                 modifier = Modifier.background(themeColor),
-                icon = {
-                    Icon(
-                        imageVector = screen.icon,
-                        contentDescription = null
-                    )
-                },
+                icon = { Icon(imageVector = screen.icon, contentDescription = null) },
                 label = { Text(text = stringResource(screen.stringId)) },
-                selected = currentDestination?.hierarchy?.any { it.route == screen.routeName } == true,
+                selected = currentDestination== screen.routeName,
                 onClick = {
-                    println("BottomNavView当前路由 ===> ${currentDestination?.hierarchy?.toList()}")
+                    println("BottomNavView当前路由 ===> ${currentDestination}")
                     println("当前路由栈 ===> ${navCtrl.graph.nodes}")
-                    if (currentDestination?.route != screen.routeName) {
+                    if (currentDestination != screen.routeName) {
                         navCtrl.navigate(screen.routeName) {
-                            popUpTo(navCtrl.graph.findStartDestination().id) {
+                            popUpTo(navCtrl.graph.startDestinationId) {
                                 saveState = true
                             }
                             launchSingleTop = true

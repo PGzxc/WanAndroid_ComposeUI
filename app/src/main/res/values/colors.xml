@@ -36,4 +36,14 @@
     <color name="light_green">#90EE90</color>
     <color name="sprint_green">#00FF7F</color>
     <color name="azure">#F0FFFF</color>
+
+    <color name="bg_blue">#3f85ff</color>
+    <color name="bg_search">#3E79E4</color>
+    <color name="bg_white">#ffffff</color>
+    <color name="bg_gray">#F5F5F5</color>
+    <color name="text_blue">#3f85ff</color>
+    <color name="text_white">#ffffff</color>
+    <color name="text_gray">#B2B2B2</color>
+    <color name="text_black">#333333</color>
+    <color name="line_color">#eeeeee</color>
 </resources>

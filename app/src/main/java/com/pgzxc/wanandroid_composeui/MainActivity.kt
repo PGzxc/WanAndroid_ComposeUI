@@ -15,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.view.WindowCompat
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.pgzxc.wanandroid_composeui.theme.WanAndroid_ComposeUITheme
 import com.pgzxc.wanandroid_composeui.ui.entry.AppScaffold
@@ -40,7 +41,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         Button(onClick = { homeViewModel.getHomeBannerData() }) {
             Text(text = "首页-轮播图")
         }
-        Button(onClick = { homeViewModel.getHomeArticleData() }) {
+        Button(onClick = { homeViewModel.getHomeArticleData(pageIndex = 0) }) {
             Text(text = "首页-文章列表")
         }
     }
