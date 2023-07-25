@@ -111,5 +111,9 @@ dependencies {
     implementation 'com.airbnb.android:lottie-compose:6.1.0'
     //webview
     implementation "com.google.accompanist:accompanist-webview:0.30.1"
+    //流式布局
+    implementation "com.google.accompanist:accompanist-flowlayout:0.30.1"
+    //placeholder
+    implementation "com.google.accompanist:accompanist-placeholder-material:0.30.1"
 
 }

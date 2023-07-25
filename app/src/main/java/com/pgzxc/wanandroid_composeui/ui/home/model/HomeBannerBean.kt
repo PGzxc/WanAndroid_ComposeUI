@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName
  * @desc：首页轮播图
  */
 
-data class HomeBannerData(
+data class HomeBannerBean(
     @SerializedName("id") val id: Long = 0,
     @SerializedName("desc") val desc: String = "",
     @SerializedName("imagePath") val imagePath: String = "",

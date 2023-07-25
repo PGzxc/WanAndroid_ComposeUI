@@ -68,7 +68,8 @@ fun HomePage(homeViewModel: HomeViewModel = HomeViewModel()) {
             }
         }
     }, state = homeViewModel.statefulState) {
-
+        //clickCallBack-失败重试
+        homeViewModel.getHomeBannerData()
+        homeViewModel.getHomeArticleData(pageIndex = 0)
     }
-
 }

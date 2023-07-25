@@ -9,11 +9,15 @@ import retrofit2.http.*
  */
 interface IApi {
 
+    //首页----接口
     @GET("banner/json")
     fun getHomeBanner(): Call<BaseResponse>
 
     @GET("article/list/{page}/json")
      fun getHomeArticleList(@Path("page") page: Int = 0): Call<BaseResponse>
 
+    //导航----接口
+    @GET("tree/json")
+    fun getTree(): Call<BaseResponse>
 
 }
