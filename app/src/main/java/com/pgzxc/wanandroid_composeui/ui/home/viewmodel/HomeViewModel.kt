@@ -44,7 +44,7 @@ class HomeViewModel() : BaseViewModel() {
         }
     }
 
-    fun getHomeArticleData(pageIndex:Int) = serverAwait {
+    fun getHomeArticleData(pageIndex: Int) = serverAwait {
         ApiCall.get().getHomeArticleList(page = pageIndex).serverData().onSuccess {
             onBizError { code, message ->
                 Log.e("xxx", "获取首页文章列表 接口异常 $code $message")
@@ -52,11 +52,15 @@ class HomeViewModel() : BaseViewModel() {
             }
             onBizOK<ArticleList> { code, data, message ->
                 Log.e("xxx", "获取首页文章列表 接口正常 $code $data $message")
-                    if (data!=null&&!data.over){
-                        currentPage.value++
-                        articleList.addAll(data?.datas?: emptyList())
-                        this@HomeViewModel.showContentUI()
-                    }
+                currentPage.value++
+                articleList.addAll(data?.datas ?: emptyList())
+                if (data == null) {
+                    this@HomeViewModel.showEmptyUI("EmptyUI")
+                } else if (data.datas.size < 15) {
+                    this@HomeViewModel.finishLoadMore(true)
+                } else {
+                    this@HomeViewModel.showContentUI()
+                }
 
             }
         }.onFailure {

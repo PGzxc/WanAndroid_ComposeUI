@@ -32,6 +32,10 @@
 
 * accompanist-flowlayout：流式布局
 
+### 2.5 V5.0—项目
+
+* ScrollableTabRow+HorizontalPager：Tab标题+滚动页面
+
 
 
 ## 三 项目中用到的资源

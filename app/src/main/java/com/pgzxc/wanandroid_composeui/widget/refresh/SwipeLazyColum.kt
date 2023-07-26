@@ -39,26 +39,14 @@ fun SwipeLazyColum(
             loadMoreCallBack()
         }
     }
-    SwipeRefresh(
-        state = rememberSwipeRefreshState(isRefreshing = swipeLazyColumState.refreshState),//用来控制SwipeRefresh的刷新状态
-        onRefresh = {//刷新回调
-            onRefreshCallBack()
-        }) {
+    SwipeRefresh(state = rememberSwipeRefreshState(isRefreshing = swipeLazyColumState.refreshState),//用来控制SwipeRefresh的刷新状态
+        onRefresh = { onRefreshCallBack() }) { //刷新回调
         LazyColumn(modifier, state = lazyListState) {
             content()
             //LoadMore的提示内容,可以根据自己的需求去自定义该部分显示样式
             item {
-                Box(
-                    modifier = Modifier
-                        .clickable {
-                            if (swipeLazyColumState.loadMoreState == LoadMoreState.loadError) {
-                                loadMoreCallBack()
-                            }
-                        }
-                        .fillMaxWidth()
-                        .padding(vertical = 8.dp),
-                    contentAlignment = Alignment.Center,
-                ) {
+                Box(modifier = Modifier.clickable { if (swipeLazyColumState.loadMoreState == LoadMoreState.loadError) { loadMoreCallBack() } }.fillMaxWidth().padding(vertical = 8.dp),
+                    contentAlignment = Alignment.Center,) {
                     Text(
                         text = when (swipeLazyColumState.loadMoreState) {
                             LoadMoreState.hasMore -> "正在加载.."
