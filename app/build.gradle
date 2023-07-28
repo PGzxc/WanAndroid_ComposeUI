@@ -116,5 +116,9 @@ dependencies {
     implementation "com.google.accompanist:accompanist-flowlayout:0.30.1"
     //placeholder
     implementation "com.google.accompanist:accompanist-placeholder-material:0.30.1"
+    //Toast
+    implementation 'com.github.tfaki:ComposableSweetToast:1.0.1'
+    //MMKV
+    implementation 'com.tencent:mmkv:1.3.0'
 
 }

@@ -25,6 +25,20 @@ interface IApi {
     fun getProject(): Call<BaseResponse>
 
     @GET("project/list/{page}/json") //项目列表
-    fun getProjectItem(@Path("page") page: Int = 0,@Query("cid") cid: Long): Call<BaseResponse>
+    fun getProjectItem(@Path("page") page: Int = 0, @Query("cid") cid: Long): Call<BaseResponse>
+
+    //登录----接口
+    @POST("user/login")
+    fun login(@Query("username") username: String,
+              @Query("password") password: String): Call<BaseResponse>
+
+    //注册----接口
+    @POST("user/register")
+    fun register(@Query("username") username: String,
+                 @Query("password") password: String,
+                 @Query("repassword") repassword: String): Call<BaseResponse>
+    //积分---接口
+    @GET("lg/coin/userinfo/json") //获取个人积分，需要登录后访问
+    fun getCoinUserInfo(): Call<BaseResponse>
 
 }

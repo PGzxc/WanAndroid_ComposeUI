@@ -1,5 +1,6 @@
 package com.pgzxc.wanandroid_composeui.base
 
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -8,14 +9,18 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.pgzxc.wanandroid_composeui.ext.addTo
+import com.pgzxc.wanandroid_composeui.ui.login.model.UserInfo
 import com.pgzxc.wanandroid_composeui.widget.dialog.AlertDlgData
 import com.pgzxc.wanandroid_composeui.widget.dialog.ConformDlgData
 import com.pgzxc.wanandroid_composeui.widget.dialog.LoadingDlgData
 import com.pgzxc.wanandroid_composeui.widget.refresh.SwipeLazyColumState
 import com.pgzxc.wanandroid_composeui.widget.state.StatefulContentState
 import com.pgzxc.wanandroid_composeui.widget.state.StatefulStateBean
+import com.talhafaki.composablesweettoast.util.SweetToastUtil
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 
 /**
@@ -23,6 +28,11 @@ import kotlinx.coroutines.launch
  */
 
 abstract class BaseViewModel() : ViewModel(), ViewBehavior {
+
+    var hasLogin by mutableStateOf(false)
+
+    var userInfo by mutableStateOf(UserInfo())
+
     /**
      * 下拉刷新上拉加载状态管理
      */
@@ -266,5 +276,18 @@ abstract class BaseViewModel() : ViewModel(), ViewBehavior {
      */
     override fun finishPage(arg: Any?) {
         finishPageEvent.postValue(arg)
+    }
+
+    private val _toastMsg = Channel<String>(Channel.BUFFERED)
+    val toastMsg = _toastMsg.receiveAsFlow()
+    fun showToast(msg: String) {
+        viewModelScope.launch {
+            _toastMsg.send(msg)
+        }
+    }
+
+    @Composable
+    fun toastError(message: String) {
+        SweetToastUtil.SweetError(message = message)
     }
 }

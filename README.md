@@ -36,7 +36,17 @@
 
 * ScrollableTabRow+HorizontalPager：Tab标题+滚动页面
 
+### 2.6 V6.0—我的+登录/注册
 
+依赖：
+
+* mmkv：保存用户信息
+* ComposableSweetToast：弹窗
+
+界面：
+
+* 我的(未登录+已登录)
+* 登录/注册
 
 ## 三 项目中用到的资源
 

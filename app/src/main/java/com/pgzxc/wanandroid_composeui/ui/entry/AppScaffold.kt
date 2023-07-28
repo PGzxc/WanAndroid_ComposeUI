@@ -25,6 +25,7 @@ import com.google.accompanist.insets.statusBarsPadding
 import com.pgzxc.wanandroid_composeui.ext.LocalNavController
 import com.pgzxc.wanandroid_composeui.ui.home.HomePage
 import com.pgzxc.wanandroid_composeui.ui.home.viewmodel.HomeViewModel
+import com.pgzxc.wanandroid_composeui.ui.login.LoginPage
 import com.pgzxc.wanandroid_composeui.ui.me.MePage
 import com.pgzxc.wanandroid_composeui.ui.msg.MsgPage
 import com.pgzxc.wanandroid_composeui.ui.project.ProjectPage
@@ -63,7 +64,9 @@ fun AppScaffold() {
             var categoryIndex = remember { 0 }
 
             NavHost(
-                modifier = Modifier.background(MaterialTheme.colors.background).padding(bottom = 50.dp),
+                modifier = Modifier
+                    .background(MaterialTheme.colors.background)
+                    .padding(bottom = 50.dp),
                 navController = navCtrl,
                 startDestination = RouteName.HOME
             ) {
@@ -88,6 +91,10 @@ fun AppScaffold() {
                 //我的
                 composable(route = RouteName.ME) {
                     MePage()
+                }
+                //登录注册
+                composable(route = RouteName.LOGIN){
+                    LoginPage()
                 }
                 //WebView
                 composable(

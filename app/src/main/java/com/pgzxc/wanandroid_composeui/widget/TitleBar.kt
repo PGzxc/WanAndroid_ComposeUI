@@ -5,10 +5,12 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
@@ -19,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -28,7 +31,11 @@ import com.pgzxc.wanandroid_composeui.theme.themeColor
 
 
 @Composable
-fun TitleBar(title: String, leftIcon: ImageVector? = null,leftCallBack: (() -> Unit)? = null,rightIcon: ImageVector? = null, rightCallBack: (() -> Unit)? = null) {
+fun TitleBar(title: String,
+             leftIcon: ImageVector? = null,
+             leftCallBack: (() -> Unit)? = null,
+             rightIcon: ImageVector? = null,
+             rightCallBack: (() -> Unit)? = null) {
 
     Row(
         modifier = Modifier
@@ -40,19 +47,22 @@ fun TitleBar(title: String, leftIcon: ImageVector? = null,leftCallBack: (() -> U
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center
     ) {
-        AnimatedVisibility(visible = (leftIcon != null)) {
-            Icon(
-                imageVector = leftIcon?:Icons.Default.ArrowBackIos,
-                contentDescription = null,
-                tint = Color.White,
-                modifier = Modifier
-                    .size(30.dp)
-                    .clickable {
-                        if (leftCallBack != null) {
-                            leftCallBack()
+        AnimatedVisibility(visible = true) {
+            when (leftIcon == null) {
+                true -> Spacer(Modifier.width(30.dp))
+                else -> Icon(
+                    imageVector = leftIcon ?: Icons.Default.ArrowBackIos,
+                    contentDescription = null,
+                    tint = Color.White,
+                    modifier = Modifier
+                        .size(30.dp)
+                        .clickable {
+                            if (leftCallBack != null) {
+                                leftCallBack()
+                            }
                         }
-                    }
-            )
+                )
+            }
         }
 
         Text(
@@ -60,13 +70,17 @@ fun TitleBar(title: String, leftIcon: ImageVector? = null,leftCallBack: (() -> U
             modifier = Modifier.weight(1f, true),
             color = White,
             textAlign = TextAlign.Center,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
             fontSize = 18.sp
         )
-        AnimatedVisibility(visible = (rightIcon != null)) {
-            if (rightIcon != null) {
-                Icon(
-                    imageVector = rightIcon,
-                    contentDescription = null, tint = Color.White,
+        AnimatedVisibility(visible = true) {
+            when (rightIcon == null) {
+                true -> Spacer(Modifier.width(30.dp))
+                else -> Icon(
+                    imageVector = rightIcon ?: Icons.Default.ArrowBackIos,
+                    contentDescription = null,
+                    tint = Color.White,
                     modifier = Modifier
                         .size(30.dp)
                         .clickable {
