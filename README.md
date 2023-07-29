@@ -1,3 +1,14 @@
+**项目预览**
+
+
+| ![][com-az-1] | ![][com-az-2]  | ![][com-az-3]  | ![][com-az-4]  |
+| ------------- | -------------- | -------------- | -------------- |
+| ![][com-az-5] | ![][com-az-6]  | ![][com-az-7]  | ![][com-az-8]  |
+| ![][com-az-9] | ![][com-az-10] | ![][com-az-11] | ![][com-az-12] |
+
+
+
+
 ## 一  开发工具及环境
 
 * Android Studio：Android Studio Flamingo| 2022.2.1 Patch2
@@ -59,3 +70,17 @@
 ## 三 项目中用到的资源
 
 * Icons：https://fonts.google.com/icons
+
+
+[com-az-1]:https://cdn.staticaly.com/gh/PGzxc/CDN/master/blog-resume/compose-az-home-1.png
+[com-az-2]:https://cdn.staticaly.com/gh/PGzxc/CDN/master/blog-resume/compose-az-tree-2.png
+[com-az-3]:https://cdn.staticaly.com/gh/PGzxc/CDN/master/blog-resume/compose-az-project-3.png
+[com-az-4]:https://cdn.staticaly.com/gh/PGzxc/CDN/master/blog-resume/compose-az-msg-4.png
+[com-az-5]:https://cdn.staticaly.com/gh/PGzxc/CDN/master/blog-resume/compose-az-msg-5.png
+[com-az-6]:https://cdn.staticaly.com/gh/PGzxc/CDN/master/blog-resume/compose-az-msg-6.png
+[com-az-7]:https://cdn.staticaly.com/gh/PGzxc/CDN/master/blog-resume/compose-az-me-7.png
+[com-az-8]:https://cdn.staticaly.com/gh/PGzxc/CDN/master/blog-resume/compose-az-me-8.png
+[com-az-9]:https://cdn.staticaly.com/gh/PGzxc/CDN/master/blog-resume/compose-az-login-9.png
+[com-az-10]:https://cdn.staticaly.com/gh/PGzxc/CDN/master/blog-resume/compose-az-login-10.png
+[com-az-11]:https://cdn.staticaly.com/gh/PGzxc/CDN/master/blog-resume/compose-az-setting-11.png
+[com-az-12]:https://cdn.staticaly.com/gh/PGzxc/CDN/master/blog-resume/compose-az-web-12.png
