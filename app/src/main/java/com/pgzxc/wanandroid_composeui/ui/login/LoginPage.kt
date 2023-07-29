@@ -27,6 +27,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.pgzxc.wanandroid_composeui.ext.LocalNavController
@@ -114,4 +115,10 @@ fun LoginPage(viewModel: LoginViewModel = LoginViewModel()) {
         }
     }
 
+}
+
+@Preview
+@Composable
+fun Preview_LoginPage() {
+    LoginPage()
 }

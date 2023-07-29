@@ -37,8 +37,16 @@ interface IApi {
     fun register(@Query("username") username: String,
                  @Query("password") password: String,
                  @Query("repassword") repassword: String): Call<BaseResponse>
+
     //积分---接口
     @GET("lg/coin/userinfo/json") //获取个人积分，需要登录后访问
     fun getCoinUserInfo(): Call<BaseResponse>
+
+    //消息---接口
+    @GET("message/lg/count_unread/json") //未读消息数量，需要登录后访问
+    fun getMessageUnRead(): Call<BaseResponse>
+
+    @GET("message/lg/readed_list/{page}/json") //已读消息数量，需要登录后访问
+    fun getMessageRead(@Path("page") page: Int = 1,@Query("page_size") page_size: Int = 10): Call<BaseResponse>
 
 }
