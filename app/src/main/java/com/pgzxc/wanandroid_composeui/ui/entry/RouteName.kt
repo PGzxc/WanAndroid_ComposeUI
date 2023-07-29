@@ -9,5 +9,6 @@ object RouteName {
 
     const val WEB_VIEW = "web_view"
     const val LOGIN = "login"
+    const val SETTING = "setting"
     const val ARTICLE_SEARCH = "article_search"
 }

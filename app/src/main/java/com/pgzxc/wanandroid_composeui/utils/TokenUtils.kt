@@ -1,11 +1,8 @@
 package com.pgzxc.wanandroid_composeui.utils
 
 import android.content.Context
-import com.franmontiel.persistentcookiejar.PersistentCookieJar
-import com.franmontiel.persistentcookiejar.cache.SetCookieCache
-import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor
 import com.google.gson.Gson
-import com.pgzxc.wanandroid_composeui.WanApplication
+import com.pgzxc.wanandroid_composeui.ext.Constants
 import com.pgzxc.wanandroid_composeui.ui.login.model.UserInfo
 import com.tencent.mmkv.MMKV
 
@@ -26,8 +23,10 @@ object TokenUtils {
         MMKV.defaultMMKV()
     }
 
-    fun cleanCookie() {
-        PersistentCookieJar(SetCookieCache(), SharedPrefsCookiePersistor(WanApplication.context)).clear() //清除Cookie
+    private fun cleanCookie() {
+        Constants.persistentCookieJar.clear() //清除Cookie
+        Constants.persistentCookieJar.clearSession() //清除Session
+
     }
 
     /**

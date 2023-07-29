@@ -4,10 +4,6 @@ import android.annotation.SuppressLint
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import java.util.concurrent.TimeUnit
-import com.franmontiel.persistentcookiejar.PersistentCookieJar
-import com.franmontiel.persistentcookiejar.cache.SetCookieCache
-import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor
-import com.pgzxc.wanandroid_composeui.WanApplication
 import com.pgzxc.wanandroid_composeui.api.IApi
 import com.pgzxc.wanandroid_composeui.ext.Constants
 import retrofit2.converter.gson.GsonConverterFactory
@@ -29,7 +25,8 @@ object ApiCall {
             .sslSocketFactory(createSSLSocketFactory(), TrustAllCerts())
             //.sslSocketFactory(createSSLSocketFactory())
             .hostnameVerifier(TrustAllNameVerifier())
-            .cookieJar(PersistentCookieJar(SetCookieCache(), SharedPrefsCookiePersistor(WanApplication.context)))
+            .cookieJar(Constants.persistentCookieJar)
+            //.cookieJar(PersistentCookieJar(SetCookieCache(), SharedPrefsCookiePersistor(WanApplication.context)))
             .build()
     }
 

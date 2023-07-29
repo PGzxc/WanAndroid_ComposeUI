@@ -7,19 +7,19 @@
 
 ## 二 开发周期
 
-### 2.1 v1.0—网络请求及解析
+###  v1.0—网络请求及解析
 
 * 网络请求：okhttp3+retrofit2
 * cookie缓存：PersistentCookieJar
 * 网络json转换：converter-gson
 * MVVM模式：lifecycle-viewmodel-ktx、lifecycle-viewmodel-compose
 
-### 2.2 V2.0—底部导航项目框架搭建
+###  V2.0—底部导航项目框架搭建
 
 * Scaffold的bottomBar设置底部导航条
 * NavHost导航切换时，显示对应界面
 
-### 2.3 V3.0—首页
+###  V3.0—首页
 
 * accompanist-pager：定义Banner轮播图
 * accompanist-swiperefresh：下拉刷新和下拉加载
@@ -28,15 +28,15 @@
 * navigation-compose：RouteUtils工具类，点击Banner和文章跳转网页显示
 * accompanist-webview：显示网页内容
 
-### 2.4 V4.0—导航
+###  V4.0—导航
 
 * accompanist-flowlayout：流式布局
 
-### 2.5 V5.0—项目
+### V5.0—项目
 
 * ScrollableTabRow+HorizontalPager：Tab标题+滚动页面
 
-### 2.6 V6.0—我的+登录/注册
+### V6.0—我的+登录/注册
 
 依赖：
 
@@ -48,9 +48,13 @@
 * 我的(未登录+已登录)
 * 登录/注册
 
-### 2.7 V7.0—消息
+###  V7.0—消息
 
 * 未读消息列表/已读消息列表
+
+### V8.0—用户设置
+
+* 退出(清除用户信息，清除Cookie，清楚Session)
 
 ## 三 项目中用到的资源
 

@@ -29,6 +29,7 @@ import com.pgzxc.wanandroid_composeui.ui.login.LoginPage
 import com.pgzxc.wanandroid_composeui.ui.me.MePage
 import com.pgzxc.wanandroid_composeui.ui.msg.MsgPage
 import com.pgzxc.wanandroid_composeui.ui.project.ProjectPage
+import com.pgzxc.wanandroid_composeui.ui.setting.SettingPage
 import com.pgzxc.wanandroid_composeui.ui.tree.TreePage
 import com.pgzxc.wanandroid_composeui.ui.webview.WebViewScreen
 import com.pgzxc.wanandroid_composeui.widget.BottomNavBarView
@@ -95,6 +96,10 @@ fun AppScaffold() {
                 //登录注册
                 composable(route = RouteName.LOGIN){
                     LoginPage()
+                }
+                //设置
+                composable(route = RouteName.SETTING){
+                    SettingPage()
                 }
                 //WebView
                 composable(
