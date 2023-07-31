@@ -71,6 +71,13 @@
 
 * Icons：https://fonts.google.com/icons
 
+## 四 compose基础
+
+* [B站韦爵爷—合集·一起学习 Jetpack Compose 基础姿势](https://space.bilibili.com/1789177732/channel/collectiondetail?sid=193557)
+* [B站韦爵爷—一起学习 Jetpack Compose 项目实战](https://www.bilibili.com/video/BV1aS4y1D7dv/)
+
+
+
 
 [com-az-1]:https://cdn.staticaly.com/gh/PGzxc/CDN/master/blog-resume/compose-az-home-1.png
 [com-az-2]:https://cdn.staticaly.com/gh/PGzxc/CDN/master/blog-resume/compose-az-tree-2.png
