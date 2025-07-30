@@ -67,6 +67,10 @@
 
 * 退出(清除用户信息，清除Cookie，清楚Session)
 
+### v9.0—CLI打包
+
+* 添加action，打Tag包后，输出apk到Assets目录下
+
 ## 三 项目中用到的资源
 
 * Icons：https://fonts.google.com/icons
