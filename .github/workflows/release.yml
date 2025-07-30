@@ -1,0 +1,53 @@
+name: Build & Release APK
+
+on:
+  push:
+    tags:
+      - '*'  # 任何 tag 都触发，例如 v1.0.0
+
+jobs:
+  build:
+    name: Build APK and Upload to Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Decode keystore
+        run: |
+          echo "${{ secrets.KEYSTORE_B64 }}" | base64 -d > my-release-key.jks
+
+      - name: Verify Gradle Wrapper exists
+        run: test -f ./gradlew
+
+      - name: Grant Gradle permission
+        run: chmod +x ./gradlew
+
+      - name: Build Release APK
+        run: |
+          ./gradlew assembleRelease \
+            -PKEYSTORE_FILE=my-release-key.jks \
+            -PKEYSTORE_PASSWORD=${{ secrets.KEYSTORE_PASSWORD }} \
+            -PKEY_ALIAS=${{ secrets.KEY_ALIAS }} \
+            -PKEY_PASSWORD=${{ secrets.KEY_PASSWORD }}
+
+      - name: Find APK path
+        id: find_apk
+        run: |
+          APK_PATH=$(find ${{ github.workspace }}/app/build/outputs/apk/release -name "*.apk" | head -n 1)
+          echo "apk_path=$APK_PATH" >> $GITHUB_OUTPUT
+          echo "Found APK: $APK_PATH"
+
+      - name: Create GitHub Release and Upload APK
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ steps.find_apk.outputs.apk_path }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -4,6 +4,29 @@ plugins {
 }
 
 android {
+
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def appName = "WanAndroidComposeUI"  // 自定义应用名
+            def buildType = variant.buildType.name   // release 或 debug
+            def versionName = variant.versionName
+            def versionCode = variant.versionCode
+            def date = new Date().format("yyyyMMdd_HHmm")
+
+            // 输出文件名，例如：MyApp_v1.2.3_20250730_release.apk
+            //def newApkName = "${appName}_v${versionName}_${date}_${buildType}.apk"
+            def newApkName = "${appName}_v${versionName}_${buildType}.apk"
+            outputFileName = newApkName
+        }
+    }
+    signingConfigs {
+        release {
+            storeFile project.hasProperty('KEYSTORE_FILE') ? file(KEYSTORE_FILE) : null
+            storePassword project.hasProperty('KEYSTORE_PASSWORD') ? KEYSTORE_PASSWORD : ""
+            keyAlias project.hasProperty('KEY_ALIAS') ? KEY_ALIAS : ""
+            keyPassword project.hasProperty('KEY_PASSWORD') ? KEY_PASSWORD : ""
+        }
+    }
     namespace 'com.pgzxc.wanandroid_composeui'
     compileSdk 34
 
@@ -22,6 +45,11 @@ android {
 
     buildTypes {
         release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
