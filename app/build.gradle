@@ -21,10 +21,10 @@ android {
     }
     signingConfigs {
         release {
-            storeFile project.hasProperty('KEYSTORE_FILE') ? file(KEYSTORE_FILE) : null
-            storePassword project.hasProperty('KEYSTORE_PASSWORD') ? KEYSTORE_PASSWORD : ""
-            keyAlias project.hasProperty('KEY_ALIAS') ? KEY_ALIAS : ""
-            keyPassword project.hasProperty('KEY_PASSWORD') ? KEY_PASSWORD : ""
+            storeFile file(KEYSTORE_FILE)
+            storePassword KEYSTORE_PASSWORD
+            keyAlias KEY_ALIAS
+            keyPassword KEY_PASSWORD
         }
     }
     namespace 'com.pgzxc.wanandroid_composeui'
